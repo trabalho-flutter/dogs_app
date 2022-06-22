@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:dogs_app/screens/dog.dart';
+import 'package:dogs_app/screens/favorites.dart';
 import 'package:flutter/material.dart';
 import 'package:dogs_app/screens/dog.dart';
 
@@ -71,6 +72,29 @@ class _HomeState extends State<HomePage> {
               },
             ),
           ),
+          GestureDetector(
+              child: Row(
+                // ignore: prefer_const_literals_to_create_immutables, sort_child_properties_last
+                children: [
+                  const Icon(
+                    Icons.favorite,
+                    color: Colors.red,
+                  ),
+                  const Text(
+                    'See My Favorites',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ],
+                mainAxisAlignment: MainAxisAlignment.center,
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Favorite(),
+                  ),
+                );
+              }),
           Expanded(
             child: FutureBuilder(
               future: _getBreeds(),
@@ -117,8 +141,8 @@ class _HomeState extends State<HomePage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) =>DogPage(dogData: snapshot.data[index])
-                ),
+                    builder: (context) =>
+                        DogPage(dogData: snapshot.data[index])),
               );
             },
             child: Padding(
