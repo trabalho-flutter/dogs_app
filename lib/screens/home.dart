@@ -4,6 +4,7 @@ import 'package:dogs_app/screens/dog.dart';
 import 'package:dogs_app/screens/favorites.dart';
 import 'package:flutter/material.dart';
 import 'package:dogs_app/screens/dog.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:http/http.dart' as http;
 
@@ -45,13 +46,9 @@ class _HomeState extends State<HomePage> {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.white,
-          title: const Text(
-            'The Dogs App',
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 30,
-            ),
-          ),
+          title: Image.asset('assets/images/logo.png',
+            fit: BoxFit.contain,
+            height: 28),
           centerTitle: true,
         ),
         backgroundColor: Colors.white,
